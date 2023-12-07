@@ -1,0 +1,20 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "TGL final project by Paula Jimenez",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "start": "npm --prefix ./client start & npm --prefix ./server start",
+    "install": "npm --prefix ./client install & npm --prefix ./server install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulajimenezt/final-project.git"
+  },
+  "author": "Paula Jimenez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulajimenezt/final-project/issues"
+  },
+  "homepage": "https://github.com/paulajimenezt/final-project#readme"
+}
