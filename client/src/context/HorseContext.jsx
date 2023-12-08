@@ -1,10 +1,9 @@
 import { createContext, useState } from "react";
-import { Horse } from "../entities/horse";
 
 export const HorseContext = createContext({});
 
 export const HorseProvider = () => {
-  const [horses, setHorses] = useState<Horse[]>([]);
+  const [horses, setHorses] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     age: 0,
@@ -20,8 +19,8 @@ export const HorseProvider = () => {
     pregnancyDate: "",
   });
 
-  function addHorse(horseData: Horse): void {
-    setHorses((prevHorses: Horse[]) => [...prevHorses, horseData]);
+  function addHorse(horseData) {
+    setHorses((prevHorses) => [...prevHorses, horseData]);
   }
 
   const contextValue = {

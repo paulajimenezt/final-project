@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const db = require("./src/db/index");
 const horsesRouter = require("./src/routers/horses-router");
@@ -10,6 +11,7 @@ const port = 3000;
 
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 
 app.use("/horses", horsesRouter);
 
