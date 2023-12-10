@@ -1,4 +1,5 @@
 const HorseModel = require("./models/horse-model");
+const UserModel = require("./models/user-model")
 const Sequelize = require("sequelize");
 const config = require("./config");
 
@@ -13,7 +14,8 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-  Horse: HorseModel(sequelize, Sequelize.DataTypes),
+  Horses: HorseModel(sequelize, Sequelize.DataTypes),
+  Users: UserModel(sequelize, Sequelize.DataTypes),
 };
 
 Object.keys(models).forEach((modelName) => {

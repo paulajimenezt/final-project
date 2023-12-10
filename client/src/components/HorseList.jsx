@@ -1,13 +1,16 @@
 import React from "react";
 import HorseCard from "./HorseCard";
+import "./HorseList.scss";
 
 const HorsesList = ({ horses }) => {
   return (
-    <div>
-      <h2>List of Horses</h2>
-      {horses.map((horse) => (
-        <HorseCard key={horse.id} horse={horse} />
-      ))}
+    <div className="horse-list">
+      <h2>Horses</h2>
+      <div className="cards">
+        {horses.map((horse) => (
+          <HorseCard key={horse.id} horse={horse} />
+        ))}
+      </div>
     </div>
   );
 };

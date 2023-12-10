@@ -15,6 +15,7 @@ export const HorseProvider = () => {
     lastCheckedDate: "",
     weight: 0,
     height: 0,
+    image: "",
     status: "",
     pregnancyDate: "",
   });

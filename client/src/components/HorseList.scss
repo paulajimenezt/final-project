@@ -1,0 +1,17 @@
+.horse-list {
+  max-width: 100%;
+  font-family: Arial, monospace;
+
+  h2 {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

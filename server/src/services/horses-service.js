@@ -1,10 +1,10 @@
-const { Horse } = require("../db/");
+const { Horses } = require("../db/");
 
 class HorsesService {
   // Save a horse
   async save(horseData) {
     try {
-      const savedHorse = await Horse.create(horseData);
+      const savedHorse = await Horses.create(horseData);
       return savedHorse;
     } catch (error) {
       console.error("Failed to create horse:", error);
@@ -15,7 +15,7 @@ class HorsesService {
   // Get a horse by ID
   async get(horseId) {
     try {
-      const horse = await Horse.findByPk(horseId);
+      const horse = await Horses.findByPk(horseId);
       return horse;
     } catch (error) {
       console.error("Failed to get horse:", error);
@@ -26,7 +26,7 @@ class HorsesService {
   // Get all horses
   async getAll() {
     try {
-      const horses = await Horse.findAll();
+      const horses = await Horses.findAll();
       return horses;
     } catch (error) {
       console.error("Failed to get horses:", error);
@@ -37,7 +37,7 @@ class HorsesService {
   // Update a horse by ID
   async update(horseId, horseData) {
     try {
-      const horse = await Horse.findByPk(horseId);
+      const horse = await Horses.findByPk(horseId);
       if (horse) {
         await horse.update(horseData);
         return horse;
@@ -51,7 +51,7 @@ class HorsesService {
   // Delete a horse by ID
   async delete(horseId, horseData) {
     try {
-      const horse = await Horse.findByPk(horseId);
+      const horse = await Horses.findByPk(horseId);
       if (horse) {
         await horse.destroy(horseData);
         return horse;

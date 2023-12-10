@@ -1,0 +1,78 @@
+.login-page {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-content: center;
+  height: 100vh;
+  font-family: Arial, monospace;
+  background: url("../public/horses2.jpg") rgba(75, 117, 255, 0.1);
+  background-size: cover;
+  background-blend-mode: multiply;
+  justify-content: center;
+
+  img {
+    height: 90px;
+    margin-bottom: 40px;
+  }
+
+  .login-form {
+    backdrop-filter: blur(20px);
+    color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      margin-bottom: 10px;
+      width: 90%;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      input {
+        padding: 8px;
+        width: 90%;
+        margin-top: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+
+    a {
+      font-size: 16px;
+      color: #7fbdff;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

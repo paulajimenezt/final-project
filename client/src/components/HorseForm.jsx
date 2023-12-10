@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import axios from "axios";
+import "./HorseForm.scss";
 
 const HorseForm = ({ onSubmit }) => {
   const [horse, setHorse] = useState({
     name: "",
     age: 0,
     breed: "",
-    gender: "",
+    gender: "Male",
     color: "",
     owner: "",
-    birthDate: "",
-    lastCheckedDate: "",
+    birthDate: undefined,
+    lastCheckedDate: undefined,
     weight: 0,
     height: 0,
-    status: "",
-    pregnancyDate: "",
+    status: "healthy",
+    pregnancyDate: undefined,
   });
 
   const handleChange = (event) => {
@@ -25,66 +27,36 @@ const HorseForm = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(horse);
-    setHorse({
-      name: "",
-      age: 0,
-      breed: "",
-      gender: "",
-      color: "",
-      owner: "",
-      birthDate: "",
-      lastCheckedDate: "",
-      weight: 0,
-      height: 0,
-      status: "",
-      pregnancyDate: "",
-    });
+    axios
+      .post("http://localhost:3000/horses", horse)
+      .then((response) => onSubmit(response.data))
+      .catch((error) => console.error("Error creating horse:", error));
   };
 
   return (
-    <div>
+    <div className="horse-form">
       <h2>Create New Horse</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
+          Name:{" "}
           <input
             type="text"
             autoComplete="given-name"
             name="name"
             value={horse.name}
             onChange={handleChange}
+            required
           />
         </label>
         <label>
-          Age:
-          <input
-            type="number"
-            name="age"
-            value={horse.age}
-            onChange={handleChange}
-          />
+          Gender:{" "}
+          <select name="gender" value={horse.gender} onChange={handleChange}>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
         </label>
         <label>
-          Breed:
-          <input
-            type="text"
-            name="breed"
-            value={horse.breed}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Gender:
-          <input
-            type="text"
-            name="gender"
-            value={horse.gender}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Color:
+          Color:{" "}
           <input
             type="text"
             name="color"
@@ -93,34 +65,35 @@ const HorseForm = ({ onSubmit }) => {
           />
         </label>
         <label>
-          Owner:
+          Owner:{" "}
           <input
             type="text"
             name="owner"
             value={horse.owner}
             onChange={handleChange}
+            required
           />
         </label>
         <label>
-          Birth Date:
+          Birth Date:{" "}
           <input
-            type="datetime-local"
+            type="date"
             name="birthDate"
             value={horse.birthDate}
             onChange={handleChange}
           />
         </label>
         <label>
-          Last Checked Date:
+          Last Checked Date:{" "}
           <input
-            type="datetime-local"
+            type="date"
             name="lastCheckedDate"
             value={horse.lastCheckedDate}
             onChange={handleChange}
           />
         </label>
         <label>
-          Weight:
+          Weight:{" "}
           <input
             type="number"
             name="weight"
@@ -129,7 +102,7 @@ const HorseForm = ({ onSubmit }) => {
           />
         </label>
         <label>
-          Height:
+          Height:{" "}
           <input
             type="number"
             name="height"
@@ -138,18 +111,18 @@ const HorseForm = ({ onSubmit }) => {
           />
         </label>
         <label>
-          Status:
-          <input
-            type="text"
-            name="status"
-            value={horse.status}
-            onChange={handleChange}
-          />
+          Status:{" "}
+          <select name="status" value={horse.status} onChange={handleChange}>
+            <option value="healthy">Healthy</option>
+            <option value="triage">Triage</option>
+            <option value="hospitalized">Hospitalized</option>
+            <option value="on recovery">On Recovery</option>
+          </select>
         </label>
         <label>
-          Pregnancy Date:
+          Pregnancy Date:{" "}
           <input
-            type="datetime-local"
+            type="date"
             name="pregnancyDate"
             value={horse.pregnancyDate}
             onChange={handleChange}

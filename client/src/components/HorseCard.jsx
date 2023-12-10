@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import "./HorseCard.scss";
 
 const Field = ({ label, value, isEditing, onChange }) => {
   return (
     <p>
-      {label}:{" "}
+      <label>{label}</label>:{" "}
       {isEditing ? (
         <input type="text" id={label} value={value} onChange={onChange} />
       ) : (
@@ -11,6 +12,14 @@ const Field = ({ label, value, isEditing, onChange }) => {
       )}
     </p>
   );
+};
+
+const formatDate = (date) => {
+  if (!date) {
+    return "";
+  }
+  const options = { year: "numeric", month: "numeric", day: "numeric" };
+  return new Date(date).toLocaleDateString(undefined, options);
 };
 
 const HorseCard = ({ horse }) => {
@@ -72,7 +81,8 @@ const HorseCard = ({ horse }) => {
   };
 
   return shouldRender ? (
-    <div>
+    <div className="horse-card">
+      <img src={editedHorse.image} />
       <h3>
         {isEditing ? (
           <input
@@ -87,89 +97,102 @@ const HorseCard = ({ horse }) => {
           editedHorse.name
         )}
       </h3>
-      <Field
-        label="Gender"
-        value={editedHorse.gender}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, gender: e.target.value })
-        }
-      />
-      <Field
-        label="Color"
-        value={editedHorse.color}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, color: e.target.value })
-        }
-      />
-      <Field
-        label="Owner"
-        value={editedHorse.owner}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, owner: e.target.value })
-        }
-      />
-      <Field
-        label="Birth Date"
-        value={editedHorse.birthDate}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, birthDate: e.target.value })
-        }
-      />
-      <Field
-        label="Last Checked Date"
-        value={editedHorse.lastCheckedDate}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, lastCheckedDate: e.target.value })
-        }
-      />
-      <Field
-        label="Weight"
-        value={editedHorse.weight}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, weight: e.target.value })
-        }
-      />
-      <Field
-        label="Height"
-        value={editedHorse.height}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, height: e.target.value })
-        }
-      />
-      <Field
-        label="Status"
-        value={editedHorse.status}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, status: e.target.value })
-        }
-      />
-      <Field
-        label="Pregnancy Date"
-        value={editedHorse.pregnancyDate}
-        isEditing={isEditing}
-        onChange={(e) =>
-          setEditedHorse({ ...editedHorse, pregnancyDate: e.target.value })
-        }
-      />
-      {isEditing ? (
-        <>
-          <button onClick={handleCancelEdit}>Cancel</button>
-          <button onClick={handleSubmitEdit}>Submit</button>
-        </>
-      ) : (
-        <>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </>
-      )}
+      <div className="card-text">
+        <div className="field">
+          <Field
+            label="Gender"
+            value={editedHorse.gender}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, gender: e.target.value })
+            }
+          />
+          <Field
+            label="Color"
+            value={editedHorse.color}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, color: e.target.value })
+            }
+          />
+          <Field
+            label="Owner"
+            value={editedHorse.owner}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, owner: e.target.value })
+            }
+          />
+          <Field
+            label="Birth Date"
+            value={formatDate(editedHorse.birthDate)}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, birthDate: e.target.value })
+            }
+          />
+          <Field
+            label="Last Checked Date"
+            value={formatDate(editedHorse.lastCheckedDate)}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({
+                ...editedHorse,
+                lastCheckedDate: e.target.value,
+              })
+            }
+          />
+          <Field
+            label="Weight"
+            value={editedHorse.weight}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, weight: e.target.value })
+            }
+          />
+          <Field
+            label="Height"
+            value={editedHorse.height}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, height: e.target.value })
+            }
+          />
+          <Field
+            label="Status"
+            value={editedHorse.status}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, status: e.target.value })
+            }
+          />
+          <Field
+            label="Pregnancy Date"
+            value={formatDate(editedHorse.pregnancyDate)}
+            isEditing={isEditing}
+            onChange={(e) =>
+              setEditedHorse({ ...editedHorse, pregnancyDate: e.target.value })
+            }
+          />
+          <div className="buttons">
+            {isEditing ? (
+              <>
+                <button className="deleteButton" onClick={handleCancelEdit}>
+                  Cancel
+                </button>
+                <button onClick={handleSubmitEdit}>Submit</button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleEdit}>Edit</button>
+                <button className="deleteButton" onClick={handleDelete}>
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   ) : null;
 };

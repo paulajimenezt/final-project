@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     height: {
       type: DataTypes.FLOAT,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     status: {
       type: DataTypes.ENUM("healthy", "triage", "hospitalized", "on recovery"),
     },
