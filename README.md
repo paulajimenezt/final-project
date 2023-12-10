@@ -1,6 +1,7 @@
 # Final Project TGL
 
 ## HorseTrack
+![image](https://github.com/paulajimenezt/final-project/assets/139513326/c3c1d42c-038f-4270-80e6-e002d300276e)
 
 ## Team Members:
 
@@ -38,16 +39,18 @@ To run the project, follow these steps:
    docker-compose up
    ```
 
-2. In the same folder, run the following command to start the server:
+2. In the root folder, run the following command to start the server:
 
    ```
-   npm run start
+   npm run install:server
+   npm run start:server
    ```
 
-3. Navigate to the client folder and run the following command to start the client:
+3. In the same folder the following command to start the client:
 
    ```
-   npm run start
+   npm run install:client
+   npm run start:client
    ```
 
 4. You can now access the client by going to http://127.0.0.1:5173. If you enter an unknown route, you will be redirected to the login page.
