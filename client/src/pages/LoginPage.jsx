@@ -57,6 +57,7 @@ const LoginPage = () => {
                 type="text"
                 name="username"
                 value={user.username}
+                required
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
               />
             </label>
@@ -67,6 +68,7 @@ const LoginPage = () => {
                 type="password"
                 name="password"
                 value={user.password}
+                required
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
             </label>
@@ -77,6 +79,7 @@ const LoginPage = () => {
                 type="text"
                 name="farmName"
                 value={user.farmName}
+                required
                 onChange={(e) => setUser({ ...user, farmName: e.target.value })}
               />
             </label>
@@ -96,6 +99,7 @@ const LoginPage = () => {
                 type="text"
                 name="username"
                 value={user.username}
+                required
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
               />
             </label>
@@ -106,6 +110,7 @@ const LoginPage = () => {
                 type="password"
                 name="password"
                 value={user.password}
+                required
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
             </label>
