@@ -4,8 +4,10 @@
   "description": "TGL final project by Paula Jimenez",
   "workspaces": ["client", "server"],
   "scripts": {
-    "start": "npm --prefix ./client start & npm --prefix ./server start",
-    "install": "npm --prefix ./client install & npm --prefix ./server install"
+    "start:server": "npm --prefix ./server start",
+    "start:client": "npm --prefix ./client start",
+    "install:server": "npm --prefix ./server install",
+    "install:client": "npm --prefix ./client install"
   },
   "repository": {
     "type": "git",
