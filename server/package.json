@@ -1,5 +1,5 @@
 {
-  "name": "health-horse",
+  "name": "health-horse-server",
   "version": "1.0.0",
   "description": "software to keep track ofo horse health",
   "main": "server.js",
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "final-project": "file:..",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
