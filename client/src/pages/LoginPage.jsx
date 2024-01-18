@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.scss";
+import logo from '../assets/horsetrack-logo-w.png'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-form">
-        <img src="../assets/horsetrack-logo-w.png" />
+        <img src={logo} />
         {isCreateAccount ? (
           <form onSubmit={handleFormSubmit}>
             <label>
