@@ -48,7 +48,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-form">
-        <img src="../../public/horsetrack-logo-w.png" />
+        <img src="../assets/horsetrack-logo-w.png" />
         {isCreateAccount ? (
           <form onSubmit={handleFormSubmit}>
             <label>

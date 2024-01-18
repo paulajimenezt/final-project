@@ -40,7 +40,7 @@ const HorsesPage = () => {
       <nav className="navbar">
         <img
           className="navbar-logo"
-          src="../../public/horsetrack-logo-w.png"
+          src="../assets/horsetrack-logo-w.png"
         ></img>
         <div className="navbar-farm-name">{farmName}</div>
         <button className="navbar-logout-button" onClick={handleLogout}>
