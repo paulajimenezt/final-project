@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HorseForm from "../components/HorseForm";
 import HorsesList from "../components/HorseList";
+import logo from "../assets/horsetrack-logo-w.png";
+import { jwtDecode } from "jwt-decode";
 import "./HorseAdminPage.scss";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 
 const HorsesPage = () => {
   const [horses, setHorses] = useState([]);
@@ -38,10 +39,7 @@ const HorsesPage = () => {
   return (
     <div className="horses-admin-page">
       <nav className="navbar">
-        <img
-          className="navbar-logo"
-          src="../assets/horsetrack-logo-w.png"
-        ></img>
+        <img className="navbar-logo" src={logo}></img>
         <div className="navbar-farm-name">{farmName}</div>
         <button className="navbar-logout-button" onClick={handleLogout}>
           Logout
