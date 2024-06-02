@@ -13,7 +13,7 @@ const HorsesPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/horses")
+      .get(`${process.env.REACT_APP_API_URL}/horses`)
       .then((response) => {
         setHorses(response.data);
       })

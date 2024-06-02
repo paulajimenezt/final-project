@@ -37,7 +37,7 @@ const HorseCard = ({ horse }) => {
   };
 
   const handleSubmitEdit = () => {
-    fetch(`http://localhost:3000/horses/${horse.id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/horses/${horse.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const HorseCard = ({ horse }) => {
       "Are you sure you want to delete this horse?"
     );
     if (confirmDelete) {
-      fetch(`http://localhost:3000/horses/${horse.id}`, {
+      fetch(`${process.env.REACT_APP_API_URL}/horses/${horse.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

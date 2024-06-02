@@ -25,8 +25,8 @@ const LoginPage = () => {
     event.preventDefault();
     const { username, password, farmName } = user;
     const url = isCreateAccount
-      ? "http://localhost:3000/users/"
-      : "http://localhost:3000/auth/login";
+      ? `${process.env.REACT_APP_API_URL}/users/`
+      : `${process.env.REACT_APP_API_URL}/auth/login`;
     const data = isCreateAccount
       ? { username, password, farmName }
       : { username, password };
