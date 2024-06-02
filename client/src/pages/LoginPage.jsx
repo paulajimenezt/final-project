@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.scss";
-import logo from '../assets/horsetrack-logo-w.png'
+import logo from "../assets/horsetrack-logo-w.png";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ const LoginPage = () => {
     event.preventDefault();
     const { username, password, farmName } = user;
     const url = isCreateAccount
-      ? `${process.env.REACT_APP_API_URL}/users/`
-      : `${process.env.REACT_APP_API_URL}/auth/login`;
+      ? `${import.meta.env.VITE_API_URL}/users/`
+      : `${import.meta.env.VITE_API_URL}/auth/login`;
     const data = isCreateAccount
       ? { username, password, farmName }
       : { username, password };

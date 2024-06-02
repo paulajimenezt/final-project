@@ -28,7 +28,7 @@ const HorseForm = ({ onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${process.env.REACT_APP_API_URL}/horses`, horse)
+      .post(`${import.meta.env.VITE_API_URL}/horses`, horse)
       .then((response) => onSubmit(response.data))
       .catch((error) => console.error("Error creating horse:", error));
   };

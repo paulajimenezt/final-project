@@ -13,7 +13,7 @@ const HorsesPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/horses`)
+      .get(`${import.meta.env.VITE_API_URL}/horses`)
       .then((response) => {
         setHorses(response.data);
       })
